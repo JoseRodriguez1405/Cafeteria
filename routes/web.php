@@ -21,3 +21,9 @@ Route::resource('producto', 'App\Http\Controllers\ProductoController');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\CartController::class, 'shop'])->name('shop');
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart.index');
+Route::post('/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.store');
+Route::post('/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::post('/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+Route::post('/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
