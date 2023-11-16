@@ -15,7 +15,7 @@
 <br>
 <div class="row">
 <div class="col-md-9">
-<a href="" class="pull-right">
+<a href="{{url('cofy')}}" class="pull-right">
 <button class="btn btn-secondary">Pagina Web</button> </a>
 </div></div>
             </div>

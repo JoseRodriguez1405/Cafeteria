@@ -10,19 +10,21 @@ class CartController extends Controller
 
     public function shop()
     {
-        $products = Producto::all();
+        $productos = Producto::all();
         //dd($products);
-        return view('tienda.cofy')->withTitle('E-COMMERCE STORE | SHOP')->with(['producto' => $producto]);
+
+        return view('tienda.cofy')->withTitle('E-COMMERCE STORE | SHOP')->with(['producto' => $productos]);
+        //return view('tienda.cofy',compact('productos'));
     }
     public function add(Request $request)
     {
 
         \Cart::add(array(
             'id' => $request->id,
-            'name' => $request->nombre,
-            'price' => $request->precio,
-            'costo_envio' => $request->costo_envio,
-            'quantity' => $request->quantity,
+            'nombre' => $request->nombre,
+            'tipo' => $request->tipo,
+            'precio' => $request->precio,
+            'cantidad' => $request->cantidad,
             'attributes' => array(
                 'image' => $request->img,
                 'slug' => $request->slug
@@ -30,8 +32,7 @@ class CartController extends Controller
         ));
 
 
-        return redirect()->route('cart.index')->with('success_msg', 'Item
-Agregado a sú Carrito!');
+        return redirect()->route('cart.index')->with('success_msg', 'Item Agregado a sú Carrito!');
     }
     public function cart()
     {
@@ -50,19 +51,17 @@ Agregado a sú Carrito!');
         \Cart::update(
             $request->id,
             array(
-                'quantity' => array(
+                'cantidad' => array(
                     'relative' => false,
-                    'value' => $request->quantity
+                    'value' => $request->cantidad
                 ),
             )
         );
-        return redirect()->route('cart.index')->with('success_msg', 'Carrito
-Actualizado!');
+        return redirect()->route('cart.index')->with('success_msg', 'Carrito Actualizado!');
     }
     public function clear()
     {
         \Cart::clear();
-        return redirect()->route('cart.index')->with('success_msg', 'Carrito esta
-vacio!');
+        return redirect()->route('cart.index')->with('success_msg', 'Carrito esta vacio!');
     }
 }

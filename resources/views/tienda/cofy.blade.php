@@ -3,7 +3,7 @@
 <div class="container" style="margin-top: 80px">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
             <li class="breadcrumb-item active" ariacurrent="page">Tienda</li>
         </ol>
     </nav>
@@ -16,7 +16,7 @@
             </div>
             <hr>
             <div class="row">
-                @foreach($products as $pro)
+                @foreach($producto as $pro)
                 <div class="col-lg-3">
                     <div class="card" style="margin-bottom: 20px; height:auto;">
                         <img src="/images/{{ $pro->image_path }}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display:block;" alt="{{ $pro->image_path }}">
@@ -29,10 +29,10 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" value="{{ $pro->id}}" id="id" name="id">
                                 <input type="hidden" value="{{ $pro->nombre }}" id="nombre" name="nombre">
+                                <input type="hidden" value="{{ $pro->tipo }}" id="tipo" name="tipo">
                                 <input type="hidden" value="{{ $pro->precio }}" id="precio" name="precio">
-                                <input type="hidden" value="{{ $pro->costo_envio }}" id="costo_envio" name="costo_envio">
                                 <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
-                                <input type="hidden" value="{{ $pro->slug}}" id="slug" name="slug">
+                                
                                 <input type="hidden" value="1" id="quantity" name="quantity">
                                 <div class="card-footer" style="background-color: white;">
                                     <div class="row">
