@@ -15,6 +15,7 @@
 <th>Tipo</th>
 <th>Precio</th>
 <th>Stock</th>
+<th>Imagen</th>
 <th>Opciones</th>
 </thead>
 <tbody>
@@ -25,6 +26,7 @@
 <td>{{ $prod->tipo }}</td>
 <td>{{ $prod->precio}}</td>
 <td>{{ $prod->stock }}</td>
+<td>{{ $prod->image_path }}</td>
 <td>
 
 <a href="{{URL::action('App\Http\Controllers\ProductoController@edit',$prod->id)}}">

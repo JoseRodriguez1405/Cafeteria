@@ -46,6 +46,13 @@ placeholder="Digite el precio">
 placeholder="Stock Actual">
 </div>
 </div>
+<div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
+<div class="form-group">
+<label for="image_path">Imagen</label>
+<input type="text" name="image_path" id="image_path" class="form-control"
+placeholder="Imagen">
+</div>
+</div>
 <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
 <div class="form-group"> <br>
 <button class="btn btn-primary" type="submit"><span

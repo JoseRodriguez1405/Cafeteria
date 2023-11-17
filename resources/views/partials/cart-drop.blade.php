@@ -3,11 +3,11 @@
 <li class="list-group-item">
     <div class="row">
         <div class="col-lg-3">
-            <img src="/images/{{ $item->attributes->image }}" style="width: 50px; height: 50px;">
+            <img src="/img/{{ $item->attributes->img }}" style="width: 50px; height: 50px;">
         </div>
         <div class="col-lg-6">
             <b>{{$item->nombre}}</b>
-            <br><small>Qty: {{$item->quantity}}</small>
+            <br><small>Qty: {{$item->cantidad}}</small>
         </div>
         <div class="col-lg-3">
             <p>${{ \Cart::get($item->id)->getPriceSum() }}</p>

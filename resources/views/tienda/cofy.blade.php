@@ -19,7 +19,7 @@
                 @foreach($producto as $pro)
                 <div class="col-lg-3">
                     <div class="card" style="margin-bottom: 20px; height:auto;">
-                        <img src="/images/{{ $pro->image_path }}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display:block;" alt="{{ $pro->image_path }}">
+                        <img src="/img/{{ $pro->image_path }}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display:block;" alt="{{ $pro->image_path }}">
                         <div class="card-body">
                             <a href="">
                                 <h6 class="card-title">{{ $pro->nombre }}</h6>
@@ -31,9 +31,9 @@
                                 <input type="hidden" value="{{ $pro->nombre }}" id="nombre" name="nombre">
                                 <input type="hidden" value="{{ $pro->tipo }}" id="tipo" name="tipo">
                                 <input type="hidden" value="{{ $pro->precio }}" id="precio" name="precio">
-                                <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
+                                <input type="hidden" value="{{ $pro->image_path }}" id="image_path" name="image_path">
                                 
-                                <input type="hidden" value="1" id="quantity" name="quantity">
+                                <input type="hidden" value="1" id="cantidad" name="cantidad">
                                 <div class="card-footer" style="background-color: white;">
                                     <div class="row">
                                         <button class="btn btn-secondarybtn-sm" class="tooltip-test" title="add to cart">

@@ -46,7 +46,7 @@
             @foreach($cartCollection as $item)
             <div class="row">
                 <div class="col-lg-3">
-                    <img src="/images/{{ $item->attributes->image }}" class="img-thumbnail" width="200" height="200">
+                    <img src="/img/{{ $item->attributes->img }}" class="img-thumbnail" width="200" height="200">
                 </div>
                 <div class="col-lg-5">
                     <p>
@@ -62,7 +62,7 @@
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-                                <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
+                                <input type="number" class="form-control form-control-sm" value="{{ $item->cantidad }}" id="cantidad" name="cantidad" style="width: 70px; margin-right: 10px;">
                                 <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i class="fa fa-edit"></i></button>
                             </div>
                         </form>

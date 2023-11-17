@@ -43,6 +43,7 @@ class ProductoController extends Controller
         $productos->tipo=$request->get('tipo');
         $productos->precio=$request->get('precio');
         $productos->stock=$request->get('stock');
+        $productos->image_path=$request->get('image_path');
         $productos->save();
 
         return Redirect::to('producto');
@@ -76,6 +77,7 @@ class ProductoController extends Controller
         $productos->tipo=$request->get('tipo');
         $productos->precio=$request->get('precio');
         $productos->stock=$request->get('stock');
+        $productos->image_path=$request->get('image_path');
         $productos->update();
         return Redirect::to('producto');
     }

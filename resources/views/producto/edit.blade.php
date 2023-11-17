@@ -37,7 +37,12 @@ value="{{$producto->precio}}">
  <input type="number" name="stock" id="stock" class="form-control"
 value="{{$producto->stock}}">
  </div>
-
+ <div class="col-md-4">
+ <label for="image_path" class="form-label">Imagen</label>
+ <input type="text" name="image_path" id="image_path"
+class="form-control"
+ value="{{$producto->image_path}}">
+ </div>
  <div class="col-12">
  <button class="btn btn-primary" type="submit"><span class="glyphicon glyphiconrefresh"></span> Actualizar
  </button>
