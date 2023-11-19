@@ -13,22 +13,23 @@ class CartController extends Controller
         $productos = Producto::all();
         //dd($products);
 
-        return view('tienda.cofy')->withTitle('CAFETERIA | COFY')->with(['producto' => $productos]);
+        return view('tienda.cofy')->withTitle('CAFETERIA')->with(['producto' => $productos]);
         //return view('tienda.cofy',compact('productos'));
     }
     public function add(Request $request)
     {
 
+        //dd(request());
+
         \Cart::add(array(
             'id' => $request->id,
-            'nombre' => $request->nombre,
-            'tipo' => $request->tipo,
-            'precio' => $request->precio,
-            'cantidad' => $request->cantidad,
+            'name' => $request->nombre,
+            'type' => $request->tipo,
+            'price' => $request->precio,
+            'quantity' => $request->cantidad,
             'attributes' => array(
                 'image_path' => $request->image_path,
-                'slug' => $request->slug
-            )
+            ),
         ));
 
 
@@ -38,7 +39,7 @@ class CartController extends Controller
     {
         $cartCollection = \Cart::getContent();
         //dd($cartCollection);
-        return view('tienda.cart')->withTitle('CAFETERIA | CART')->with(['cartCollection' => $cartCollection]);;
+        return view('tienda.cart')->withTitle('CAFETERIA')->with(['cartCollection' => $cartCollection]);;
     }
     public function remove(Request $request)
     {
@@ -51,7 +52,7 @@ class CartController extends Controller
         \Cart::update(
             $request->id,
             array(
-                'cantidad' => array(
+                'quantity' => array(
                     'relative' => false,
                     'value' => $request->cantidad
                 ),

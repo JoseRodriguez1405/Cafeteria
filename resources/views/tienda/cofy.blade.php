@@ -25,7 +25,7 @@
                                 <h6 class="card-title">{{ $pro->nombre }}</h6>
                             </a>
                             <p>${{ $pro->precio }}</p>
-                            <form action="{{ route('cart.store') }}" method="POST">
+                            <form action="{{ route('cart.store') }}" method="POST"> 
                                 {{ csrf_field() }}
                                 <input type="hidden" value="{{ $pro->id}}" id="id" name="id">
                                 <input type="hidden" value="{{ $pro->nombre }}" id="nombre" name="nombre">
@@ -36,8 +36,8 @@
                                 <input type="hidden" value="1" id="cantidad" name="cantidad">
                                 <div class="card-footer" style="background-color: white;">
                                     <div class="row">
-                                        <button class="btn btn-secondarybtn-sm" class="tooltip-test" title="add to cart">
-                                            <i class="fa fa-shoppingcart"></i> agregar al carrito
+                                        <button class="btn btn-info" class="tooltip-test" title="add to cart">
+                                            <i class="fa fa-shoppingcart"></i> Agregar al carrito
                                         </button>
                                     </div>
                                 </div>
