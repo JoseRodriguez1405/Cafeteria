@@ -68,15 +68,15 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Productos</h1>
+                        <h1 class="mt-4">Pedidos</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{{url('producto')}}">Admin</a></li>
-                            <li class="breadcrumb-item active">Productos</li>
+                            <li class="breadcrumb-item active">Pedidos</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
 
-                            @yield('contenido')
+                            @yield('contenido2')
 
                             </div>
                         </div>

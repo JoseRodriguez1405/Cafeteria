@@ -37,8 +37,7 @@
         <div class="col-lg-7">
             <br>
             @if(\Cart::getTotalQuantity()>0)
-            <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el
-                carrito</h4><br>
+            <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
             @else
             <h4>No hay Producto(s) en su carrito</h4><br>
             <a href="{{ url('cofy') }}" class="btn btn-dark">Continue en la tienda</a>
@@ -53,7 +52,7 @@
                     <p>
                         <b><a href="/cofy/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
                         <b>Precio: </b>${{ $item->price }}<br>
-                        <b>Sub Total: </b>${{ \Cart::getTotal() }}<br>
+                        <b>Sub Total: </b>${{ \Cart::get($item->id)->getPriceSum() }}<br>
                         {{-- <b>With Discounts: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
                     </p>
                 </div>
@@ -103,8 +102,7 @@
             @if(count($cartCollection)>0)
             <form action="{{ route('cart.clear') }}" method="POST">
                 {{ csrf_field() }}
-                <button class="btn btn-secondary btn-md">Borrar
-                    Carrito</button>
+                <button class="btn btn-secondary btn-md">Borrar Carrito</button>
             </form>
             @endif
         </div>
@@ -115,10 +113,8 @@
                     <li class="list-group-item"><b>Total: </b>${{ \Cart::getTotal() + $item->costo_envio }} </li>
                 </ul>
             </div>
-            <br><a href="{{ url('cofy') }}" class="btn btn-dark">Continue en la
-                tienda</a>
-            <a href="/checkout" class="btn btn-success">Proceder al
-                Checkout</a>
+            <br><a href="{{ url('cofy') }}" class="btn btn-dark">Continue en la tienda</a>
+            <a href="/checkout" class="btn btn-success">Enviar Compra</a>
         </div>
         @endif
     </div>
