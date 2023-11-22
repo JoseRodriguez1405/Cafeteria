@@ -1,35 +1,53 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Producto;
-
+use App\Models\Pedido;
 class CartController extends Controller
 {
 
-    public function checkout(Request $request){
-        //dd($request);
-        if($request->CartCollection  === null){
+    public function checkout(Request $request)
+    {
+        // Verifica si hay productos en el carrito
+        if (\Cart::isEmpty()) {
             return abort(404);
         }
-        $data = [];
-        foreach ($request->CartCollection  as $item) {
-            $producto = Producto::all();
-            $data[] = [
-                'product_id' => $item->id,
-                'quantity' => $item->quantity,
-                'name' => $item->name,
-                'price' => $item->price,
-              ];
-          }
-          dd($data);
-          //DB::table('orders')->insert($data);
 
+        // Recopila los detalles del pedido
+        $pedidoDetalles = [];
+        $totalPedido = 0;
+
+        foreach (\Cart::getContent() as $item) {
+            $pedidoDetalles[] = [
+                'descripcion' => $item->name,
+                'precio' => $item->price,
+                'cantidad' => $item->quantity,
+                // Puedes agregar otras columnas según sea necesario
+            ];
+
+            // Calcula el subtotal del producto
+            $subtotal = $item->quantity * $item->price;
+            $totalPedido += $subtotal;
+        }
+
+        // Guarda los detalles del pedido en la tabla de pedidos
+        $pedido = new Pedido();
+        $pedido->descripcion = json_encode($pedidoDetalles); // Puedes ajustar esto según tus necesidades
+        $pedido->total = $totalPedido;
+        $pedido->save();
+
+        // Limpia el carrito después de realizar el pedido
         \Cart::clear();
-        $productos = Producto::all();
-        return view('tienda.cofy')->withTitle('CAFETERIA')->with(['producto' => $productos]);
+
+
+        Session::flash('success_msg', 'Pedido creado con éxito');
+
+        // Redirige a una página de agradecimiento u otro lugar
+        return redirect()->route('shop');
     }
+
 
     public function shop()
     {

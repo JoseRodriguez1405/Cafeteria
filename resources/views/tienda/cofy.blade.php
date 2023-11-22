@@ -1,6 +1,17 @@
 @extends('layout.app')
 @section('content')
+
 <div class="container" style="margin-top: 80px">
+    <!-- En tu vista cart.index.blade.php -->
+
+@if(Session::has('success_msg'))
+<div class="alert alert-success">
+    {{ Session::get('success_msg') }}
+</div>
+@endif
+
+<!-- Resto del contenido de la página -->
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
@@ -10,6 +21,8 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="row">
+
+
                 <div class="col-lg-7">
                     <h4>Productos</h4>
                 </div>

@@ -10,5 +10,5 @@ class Pedido extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ['nombre','tipo','cantidad','precio','subtotal'];
+    protected $fillable = ['descripcion','total'];
 }

@@ -114,7 +114,7 @@
                 </ul>
             </div>
             <br><a href="{{ url('cofy') }}" class="btn btn-dark">Continue en la tienda</a>
-            <a href="/checkout" class="btn btn-success">Enviar Compra</a>
+            <a href="{{ url('checkout') }}" class="btn btn-success">Enviar Compra</a>
         </div>
         @endif
     </div>
