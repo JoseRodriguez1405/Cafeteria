@@ -8,6 +8,29 @@ use App\Models\Producto;
 class CartController extends Controller
 {
 
+    public function checkout(Request $request){
+        //dd($request);
+        if($request->CartCollection  === null){
+            return abort(404);
+        }
+        $data = [];
+        foreach ($request->CartCollection  as $item) {
+            $producto = Producto::all();
+            $data[] = [
+                'product_id' => $item->id,
+                'quantity' => $item->quantity,
+                'name' => $item->name,
+                'price' => $item->price,
+              ];
+          }
+          dd($data);
+          //DB::table('orders')->insert($data);
+
+        \Cart::clear();
+        $productos = Producto::all();
+        return view('tienda.cofy')->withTitle('CAFETERIA')->with(['producto' => $productos]);
+    }
+
     public function shop()
     {
         $productos = Producto::all();

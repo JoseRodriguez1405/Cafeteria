@@ -28,3 +28,5 @@ Route::post('/add', [App\Http\Controllers\CartController::class, 'add'])->name('
 Route::post('/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
+Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('cart.checkout');
+
