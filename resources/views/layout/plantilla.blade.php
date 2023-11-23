@@ -14,7 +14,7 @@
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Administración</a>
+            <a class="navbar-brand ps-3" href="/producto">Administración</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -29,9 +29,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Inicio</a></li>
+                        <li><a class="dropdown-item" href="/home">Inicio</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Salir</a></li>
+                    
                     </ul>
                 </li>
             </ul>
@@ -50,7 +50,7 @@
                             <div class="productos" id="productos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{url('producto')}}">Productos</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Ventas</a>
+               
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="{{url('pedido')}}">

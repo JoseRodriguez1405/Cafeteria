@@ -44,8 +44,8 @@
     <a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">
         CARRITO <i class="fa fa-arrow-right"></i>
     </a>
-    <a class="btn btn-dark btn-sm btn-block" href="">
-        Enviar <i class="fa fa-arrow-right"></i>
+    <a class="btn btn-dark btn-sm btn-block" href="{{ url('checkout') }}">
+        ENVIAR <i class="fa fa-arrow-right"></i>
     </a>
 </div>
 @else
